@@ -1,0 +1,40 @@
+tr {
+    background-color: #efefef;
+}
+
+th {
+    background-color: #bfbfbf
+}
+
+table {
+    border-radius: 5px;
+}
+
+table,
+table th,
+table tr,
+table td {
+    border-spacing: 0px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+}
+
+.btnNext {
+    background-image: url("../../assets/images/btnNext.png");
+    width: 100px;
+    height: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    float: right;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 70px;
+}

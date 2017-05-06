@@ -5,7 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './list-results.component.html',
   styleUrls: ['./list-results.component.css']
 })
+
+
 export class ListResultsComponent implements OnInit {
+private isOnSale = true;
 
   constructor() { }
 

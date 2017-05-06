@@ -5,16 +5,31 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CapturePhotoComponent } from './capture-photo/capture-photo.component';
+import { ListResultsComponent } from './list-results/list-results.component';
+import { RouterModule } from '@angular/router';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapturePhotoComponent
+    CapturePhotoComponent,
+    ListResultsComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'list-results',
+        component: ListResultsComponent
+      },
+      {
+        path: 'order-summary',
+        component: OrderSummaryComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
