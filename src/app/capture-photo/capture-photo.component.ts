@@ -27,7 +27,6 @@ export class CapturePhotoComponent implements OnInit {
       navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
         video.src = window.URL.createObjectURL(stream);
         video.play();
-        
       });
     }
   }
@@ -43,6 +42,8 @@ export class CapturePhotoComponent implements OnInit {
   }
 
   onScan() {
+
+    this.hidePhoto = false;
     // Elements for taking the snapshot
     var canvas: any = document.getElementById('canvas');
     var context = canvas.getContext('2d');
@@ -50,6 +51,7 @@ export class CapturePhotoComponent implements OnInit {
     context.drawImage(video, 0, 0, 640, 480);
     this.stopVideoCamera();
   }
+
   onHidePhoto(){
     this.hidePhoto = true;
   }

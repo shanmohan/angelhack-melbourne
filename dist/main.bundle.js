@@ -46,7 +46,7 @@ module.exports = "<app-capture-photo></app-capture-photo>"
 /***/ 138:
 /***/ (function(module, exports) {
 
-module.exports = "<video id=\"video\" width=\"640\" height=\"480\" autoplay (click)=\"onScan()\" [hidden] = \"hideVedio\" ></video>\n<button id=\"snap\" (click)=\"onScan()\">Snap Photo</button>\n<button id=\"snap\" (click)=\"startVideoCamera()\">Start Photo</button>\n<i class=\"fa fa-camera\" aria-hidden=\"true\"></i>\n<canvas id=\"canvas\" width=\"640\" height=\"480\" [hidden]= \"hidePhoto\"></canvas>\n"
+module.exports = "<video id=\"video\" width=\"640\" height=\"480\" autoplay (click)=\"onScan()\" [hidden] = \"hideVedio\" ></video>\n<button id=\"snap\" (click)=\"onScan()\">Snap Photo</button>\n<button id=\"snap\" (click)=\"startVideoCamera()\">Start Photo</button>\n<!--<i class=\"fa fa-camera\" aria-hidden=\"true\"></i>-->\n<canvas id=\"canvas\" width=\"640\" height=\"480\" [hidden]= \"hidePhoto\"></canvas>\n"
 
 /***/ }),
 
@@ -220,6 +220,7 @@ var CapturePhotoComponent = (function () {
         });
     };
     CapturePhotoComponent.prototype.onScan = function () {
+        this.hidePhoto = false;
         // Elements for taking the snapshot
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
