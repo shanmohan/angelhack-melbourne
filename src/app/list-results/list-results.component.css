@@ -28,6 +28,7 @@ table td {
     border: none;
     border-radius: 5px;
     float: right;
+    margin-bottom: 10px;
 }
 
 .col-centered {
@@ -37,4 +38,8 @@ table td {
 
 .logo {
     height: 70px;
+}
+
+div.card {
+    margin: 20px;
 }

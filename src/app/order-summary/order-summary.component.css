@@ -26,6 +26,7 @@ button {
     background-repeat: no-repeat;
     border: none;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .btnNext {
@@ -57,4 +58,8 @@ button {
 
 input {
     margin-right: 20px
+}
+
+div.card {
+    margin: 20px;
 }

@@ -1,7 +1,19 @@
-<video id="video" width="640" height="480" autoplay (click)="onScan()" [hidden]="hideVedio"></video>
-<!--<i class="fa fa-camera" aria-hidden="true"></i>-->
-<canvas id="canvas" width="640" height="480" [hidden]="hidePhoto"></canvas>
-<button id="snap" (click)="onScan()">Snap Photo</button>
-<button id="snap" (click)="startVideoCamera()">Start Photo</button>
-<button routerLink="list-results">Search</button>
+<div class="card">
+    <div class="card-header">
+        <img class="logo" src="../../assets/images/logo.png" />
+    </div>
+    <div class="col-sm-12 col-xs-12">
+        <div class="row">
+            <h3 class="centered">Welcome!</h3>
+            <h4 class="centered">Snap a photo of your bill to start</h4>
+        </div>
+        <div class="row">
+            <video id="video" width="640" height="480" autoplay (click)="onScan()" [hidden]="hideVedio"></video>
+            <canvas id="canvas" width="640" height="480" [hidden]="hidePhoto"></canvas>
+            <button id="snap" (click)="onScan()" style="border-radius:5px;background-color: #448ccb; color:#fff;"><img src="../../assets/images/photo-camera.png" height="50em"/><br/><strong>Snap Photo</strong></button>
+            <button id="snap" (click)="startVideoCamera()" style="border-radius:5px;background-color: #448ccb; color:#fff;"><img src="../../assets/images/start-camera.png" height="50em"/><br/><strong>Start Photo</strong></button>
+            <button routerLink="list-results" style="border-radius:5px;background-color: #448ccb; color:#fff;"><img src="../../assets/images/search.png" height="50em"/><br/><strong>Search</strong></button>
+        </div>
+    </div>
+</div>
 <router-outlet></router-outlet>
