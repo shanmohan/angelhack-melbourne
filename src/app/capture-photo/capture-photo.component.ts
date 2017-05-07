@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,16 +10,27 @@ export class CapturePhotoComponent implements OnInit {
 
   hideVedio : boolean;
   hidePhoto : boolean;
-  constructor() {
+  localStream : MediaStream;
+  height : number;
+  width : number;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,) {
     this.hideVedio = true;
     this.hidePhoto = true;
+
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
    }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.startVideoCamera();
+   }
 
   startVideoCamera() {
     this.hideVedio = false;
-    this.hidePhoto = true;
+    this.hidePhoto = true; 
+    var self = this;
     // Grab elements, create settings, etc.
     var video = document.getElementById('video') as HTMLVideoElement;
     // Get access to the camera!
@@ -27,32 +39,29 @@ export class CapturePhotoComponent implements OnInit {
       navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
         video.src = window.URL.createObjectURL(stream);
         video.play();
+        self.localStream = stream;
       });
     }
   }
 
   stopVideoCamera() {
-    this.hideVedio = true;
-    var video1 = document.getElementById('video') as HTMLVideoElement;
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
-      video1.src = window.URL.createObjectURL(stream);
-      for (let tt of stream.getTracks())
-        tt.stop();
-    });
+    this.hideVedio = true; 
   }
 
   onScan() {
-
     this.hidePhoto = false;
+    this.hideVedio = true;
     // Elements for taking the snapshot
     var canvas: any = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     var video = document.getElementById('video');
-    context.drawImage(video, 0, 0, 640, 480);
+    context.drawImage(video, 0, 0);
     this.stopVideoCamera();
   }
 
-  onHidePhoto(){
+  goToListingScreen(){
     this.hidePhoto = true;
+    this.hideVedio = true; 
+    this.router.navigate([`/list-results`]);
   }
 }

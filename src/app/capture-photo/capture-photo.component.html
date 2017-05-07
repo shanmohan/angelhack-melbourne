@@ -1,7 +1,2 @@
-<video id="video" width="640" height="480" autoplay (click)="onScan()" [hidden]="hideVedio"></video>
-<!--<i class="fa fa-camera" aria-hidden="true"></i>-->
-<canvas id="canvas" width="640" height="480" [hidden]="hidePhoto"></canvas>
-<button id="snap" (click)="onScan()">Snap Photo</button>
-<button id="snap" (click)="startVideoCamera()">Start Photo</button>
-<button routerLink="list-results">Search</button>
-<router-outlet></router-outlet>
+<video id="video" width="auto" height="auto" autoplay (click)="onScan()" [hidden]="hideVedio"></video>
+<canvas id="canvas" [width]="width" [height]="height" [hidden]="hidePhoto" (click)="goToListingScreen()"></canvas>

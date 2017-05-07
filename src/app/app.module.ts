@@ -1,3 +1,4 @@
+import { Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +9,13 @@ import { CapturePhotoComponent } from './capture-photo/capture-photo.component';
 import { ListResultsComponent } from './list-results/list-results.component';
 import { RouterModule } from '@angular/router';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+
+export const routes: Routes = [
+  { path: '', redirectTo: '/capturephoto', pathMatch: 'full' },
+  { path: 'capturephoto', component: CapturePhotoComponent },
+  { path: 'list-results', component: ListResultsComponent },
+  { path: 'order-summary', component: OrderSummaryComponent }
+];
 
 @NgModule({
   declarations: [
@@ -20,16 +28,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      {
-        path: 'list-results',
-        component: ListResultsComponent
-      },
-      {
-        path: 'order-summary',
-        component: OrderSummaryComponent
-      }
-    ])
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
