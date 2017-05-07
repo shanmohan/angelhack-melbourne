@@ -5,3 +5,8 @@
 div.card {
     margin: 20px;
 }
+
+#video,
+#canvas {
+    width: 100%;
+}

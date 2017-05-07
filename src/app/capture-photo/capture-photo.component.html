@@ -8,12 +8,10 @@
             <h4 class="centered">Snap a photo of your bill to start</h4>
         </div>
         <div class="row">
-            <video id="video" width="640" height="480" autoplay (click)="onScan()" [hidden]="hideVedio"></video>
-            <canvas id="canvas" width="640" height="480" [hidden]="hidePhoto"></canvas>
-            <button id="snap" (click)="onScan()" style="border-radius:5px;background-color: #448ccb; color:#fff;"><img src="../../assets/images/photo-camera.png" height="50em"/><br/><strong>Snap Photo</strong></button>
-            <button id="snap" (click)="startVideoCamera()" style="border-radius:5px;background-color: #448ccb; color:#fff;"><img src="../../assets/images/start-camera.png" height="50em"/><br/><strong>Start Photo</strong></button>
-            <button routerLink="list-results" style="border-radius:5px;background-color: #448ccb; color:#fff;"><img src="../../assets/images/search.png" height="50em"/><br/><strong>Search</strong></button>
+            <img src="../../assets/images/search.png" [hidden]="hideButton" (click)="showCamera()">
+            <video id="video" autoplay (click)="onScan()" [hidden]="hideVedio"></video>
+            <canvas id="canvas" [width]="width" [height]="height" [hidden]="hidePhoto" (click)="goToListingScreen()"></canvas>
+            <h4 class="centered" [hidden]="hideVedio">Tap the video to grab a shot!</h4>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>
